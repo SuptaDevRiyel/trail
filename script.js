@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const queryButton = document.getElementById('queryButton');
     const output = document.getElementById('output');
 
-    const sheetId = '1q2EcbZaqW8qSiNOqdJv7mHV3H6kVCrawyErlp9bJNHw';
+    const sheetId = '1Ras1nTJGPq1T7qjdCGgYX_qgDXQAIXefAdV7TUH8V5k';
     const apiKey = 'AIzaSyBU55OsD3DxAzNBJSmjEh9weRk0gR1zMtw';
 
     showSheetButton.addEventListener('click', () => {
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displaySheetData(data) {
-        let table = '<table><tr><th>Name</th><th>Age</th><th>Class</th><th>Date of Birth</th></tr>';
+        let table = '<table><tr><th>Serial</th><th>Name</th><th>Father\'s Name</th><th>Mother\'s Name</th><th>Class</th><th>Age</th><th>School\'s Name</th><th>Address</th></tr>';
         data.slice(1).forEach(row => {
-            table += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`;
+            table += `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td><td>${row[5]}</td><td>${row[6]}</td><td>${row[7]}</td></tr>`;
         });
         table += '</table>';
         output.innerHTML = table;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayIndividualData(data, name) {
         const headers = data[0];
-        const row = data.find(row => row[0].toLowerCase() === name.toLowerCase());
+        const row = data.find(row => row[1].toLowerCase() === name.toLowerCase());
         if (row) {
             let table = '<table>';
             headers.forEach((header, index) => {
